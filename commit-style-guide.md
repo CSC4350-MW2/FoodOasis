@@ -1,1 +1,1 @@
-[Commit style guide](https://udacity.github.io/git-styleguide/).`
+Follow this commit style for all commits [Commit style guide](https://udacity.github.io/git-styleguide/)
