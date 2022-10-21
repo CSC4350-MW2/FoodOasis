@@ -1,0 +1,45 @@
+{
+  "compilerOptions": {
+      "target": "ES2016",                                
+      "module": "commonjs",    
+      "noImplicitAny": true,                  
+      "outDir": "./dist",   
+      "alwaysStrict": true,     
+      "strict": true,  
+      "strictNullChecks": true,                              
+      "strictPropertyInitialization": false,                       
+      "esModuleInterop": true,                        
+      "experimentalDecorators": true,              
+      "emitDecoratorMetadata": true,              
+      "skipLibCheck": true,                           
+      "forceConsistentCasingInFileNames": true ,
+      "resolveJsonModule": true,
+      "sourceMap": true,
+      "baseUrl": "./",
+      "typeRoots": ["src/@types", "node_modules/@types"],
+      "paths": {
+          "@server*": ["src/*"],
+          "@authorization*":["src/authorization/*"],
+          "@common*":["src/common/*"],
+          "@core*": ["src/common/core/*"],
+          "@exceptions*": ["src/common/exceptions/*"],
+          "@middlewares*": ["src/common/middlewares/*"],
+          "@utils*": ["src/common/utils/*"],
+          "@config*": ["src/config/*"],
+          "@loaders*": ["src/loaders/*"],
+          "@modules*": ["src/modules/*"],
+          "@user-service*": ["src/modules/user*"],
+          "@shop-service*": ["src/modules/shop*"],
+          "@category-service*": ["src/modules/category*"],
+          "@providers*": ["src/providers/*"],    
+          "@logger*": ["src/providers/logger*"],   
+          "@gps*": ["src/providers/gps*"], 
+      }
+  },
+  "include": ["./src", "./test"],
+  "exclude": ["node_modules", "dist"],
+  "ts-node": {
+      "files": true,
+      "require": ["tsconfig-paths/register"]
+  }
+}
