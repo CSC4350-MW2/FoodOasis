@@ -3,11 +3,8 @@ node_modules
 dist
 
 # configs
-config/jwt/public.pem
 config/.env.defaults
 config/.env.dev
-config/.env.test
-config/.env.prod
 
 # Outputs
 coverage
