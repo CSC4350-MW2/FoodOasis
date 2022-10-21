@@ -1,5 +1,5 @@
 import { parsedEnv } from ".";
-import { ParsedVariables } from 'dotenv-parse-variables'
+import { ParsedVariables } from 'dotenv-parse-variables';
 import * as pkg from '../../package.json';
 
 /**
@@ -26,8 +26,8 @@ class AppConfig{
       this.schema = String(parsedEnv.APP_SCHEMA);
       this.host = String(parsedEnv.APP_HOST);
       this.routePrefix = String(parsedEnv.APP_ROUTE_PREFIX);
-      this.banner = Boolean(parsedEnv.APP_BANNER)
-    }
+      this.banner = Boolean(parsedEnv.APP_BANNER);
+    };
   }
   
   export default new AppConfig(parsedEnv);
