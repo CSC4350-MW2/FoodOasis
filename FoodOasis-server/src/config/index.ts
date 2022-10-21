@@ -20,3 +20,7 @@ const env = dotenvExtended.load({
 export const parsedEnv: ParsedVariables = dotenvParseVariables(env)
 
 export { default as AppConfig } from './app.config';
+export { default as DBConfig } from './db.config';
+export { default as JwtConfig } from './jwt.config';
+export { default as SwaggerConfig } from './swagger.config'
+
