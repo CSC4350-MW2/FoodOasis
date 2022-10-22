@@ -8,7 +8,8 @@ import {
     expressLoader, 
     winstonLoader,
     processLoader,
-    swaggerLoader
+    swaggerLoader,
+    iocLoader
 } from "@loaders/"
 
 const log = new LoggerService(__filename);
@@ -17,6 +18,7 @@ bootstrapMicroframework({
     loaders: [
         winstonLoader,
         processLoader,
+        iocLoader,
         expressLoader,
         swaggerLoader
     ]
