@@ -2,14 +2,19 @@
 import 'reflect-metadata';
 import { bootstrapMicroframework } from "microframework-w3tec";
 
+import { LoggerService } from '@logger/';
 import { 
     expressLoader, 
+    winstonLoader
 } from "@loaders/"
+
+const log = new LoggerService(__filename);
 
 bootstrapMicroframework({
     loaders: [
+        winstonLoader,
         expressLoader,
     ]
 })
-    .then(() => console.log("Server Running"))
-    .catch(error => console.log('Application is crashed: ' + error));
+    .then(() => log.http("Server Running"))
+    .catch(error => log.error('Application is crashed: ' + error));

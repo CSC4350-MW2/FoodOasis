@@ -30,7 +30,9 @@
     "nodemon": "^2.0.20",
     "pg": "^8.8.0",
     "reflect-metadata": "^0.1.13",
-    "routing-controllers": "^0.8.1"
+    "routing-controllers": "^0.8.1",
+    "typedi": "^0.10.0",
+    "winston": "^3.8.2"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
