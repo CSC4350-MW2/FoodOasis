@@ -5,7 +5,7 @@ import * as winston from 'winston';
 @Service()
 export class LoggerService {
 
-    public static DEFAULT_SCOPE = 'app';
+    public static DEFAULT_SCOPE = 'App';
 
     private static parsePathToScope(filepath: string): string {
         if (filepath.indexOf(path.sep) >= 0) {
@@ -15,6 +15,7 @@ export class LoggerService {
             filepath = filepath.replace('.ts', '');
             filepath = filepath.replace('.js', '');
             filepath = filepath.replace(path.sep, ':');
+            filepath = filepath[0].toUpperCase() + filepath.slice(1).toLowerCase()
         }
         return filepath;
     }

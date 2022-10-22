@@ -2,6 +2,7 @@
 import 'reflect-metadata';
 import { bootstrapMicroframework } from "microframework-w3tec";
 
+import { banner } from '@providers/banner';
 import { LoggerService } from '@logger/';
 import { 
     expressLoader, 
@@ -16,5 +17,5 @@ bootstrapMicroframework({
         expressLoader,
     ]
 })
-    .then(() => log.http("Server Running"))
+    .then(() => banner(log))
     .catch(error => log.error('Application is crashed: ' + error));

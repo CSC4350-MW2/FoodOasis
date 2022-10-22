@@ -15,8 +15,11 @@ export const winstonLoader: MicroframeworkLoader = (settings: MicroframeworkSett
         level: AppConfig.env === 'development' ? 'debug' : 'warn',
         levels,
         format: format.combine(
+            format(info => {
+                info.level = info.level.toUpperCase()
+                return info;
+              })(),
             format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss:ms' }),
-            // format.label({label: 'user-service'}),
             format.colorize({all: true}),
             format.printf( (info) => `[${info.timestamp}] ${info.level}: ${info.message} \n`, )
         ), 
