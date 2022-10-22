@@ -7,21 +7,32 @@
     "test": "test"
   },
   "scripts": {
+    "env:dev": "cross-env ENV_FILE=./config/.env.dev",
+    "env:prod": "cross-env ENV_FILE=./config/.env.prod",
+    "env:test": "cross-env ENV_FILE=./config/.env.test",
+    "build": "rimraf ./dist && tsc",
     "lint": "eslint \"src/**/*.ts\" --fix"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.13.2",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "dotenv-extended": "^2.9.0",
     "dotenv-parse-variables": "^2.0.0",
     "express": "^4.18.2",
+    "helmet": "^6.0.0",
     "jsonwebtoken": "^8.5.1",
+    "microframework-w3tec": "^0.6.3",
     "nodemon": "^2.0.20",
     "pg": "^8.8.0",
-    "reflect-metadata": "^0.1.13"
+    "reflect-metadata": "^0.1.13",
+    "routing-controllers": "^0.8.1"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.12",
     "@types/dotenv-parse-variables": "^2.0.1",
     "@types/express": "^4.17.14",
     "@types/jsonwebtoken": "^8.5.9",
