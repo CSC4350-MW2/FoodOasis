@@ -6,7 +6,8 @@ import { banner } from '@providers/banner';
 import { LoggerService } from '@logger/';
 import { 
     expressLoader, 
-    winstonLoader
+    winstonLoader,
+    processLoader,
 } from "@loaders/"
 
 const log = new LoggerService(__filename);
@@ -14,6 +15,7 @@ const log = new LoggerService(__filename);
 bootstrapMicroframework({
     loaders: [
         winstonLoader,
+        processLoader,
         expressLoader,
     ]
 })
