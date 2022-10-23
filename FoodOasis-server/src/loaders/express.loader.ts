@@ -6,7 +6,7 @@ import express, { Application } from 'express'
 import { useExpressServer } from 'routing-controllers'
 import { MicroframeworkLoader, MicroframeworkSettings } from 'microframework-w3tec';
 
-import { AppConfig } from '@config/'
+import { AppConfig } from '@config//'
 
 export const expressLoader: MicroframeworkLoader = (settings: MicroframeworkSettings | undefined) => {
     if (settings) {

@@ -1,5 +1,5 @@
-import { ResponseCore } from "@core/";
-import { StatusCode, Success, ErrorType } from "@utils/";
+import { ResponseCore } from "@core//";
+import { StatusCode, Success, ErrorType } from "@utils//";
 
 /**
  * @class sends bad request response to client

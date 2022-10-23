@@ -7,7 +7,7 @@ import {
     ForbiddenResponse,
     ConflictResponse
 } from '../responses'
-import { AppConfig } from '@config/';
+import { AppConfig } from '@config//';
 
 /**
 * @class @abstract 

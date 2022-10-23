@@ -1,5 +1,5 @@
-import { ResponseCore } from "@core/";
-import { DataResponses, StatusCode, Success } from "@utils/";
+import { ResponseCore } from "@core//";
+import { DataResponses, StatusCode, Success } from "@utils//";
 
 /**
  * @class sends success response to client
