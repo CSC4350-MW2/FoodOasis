@@ -12,10 +12,7 @@ export enum ErrorType {
     UNAUTHORIZED = 'AuthFailureError',
     INTERNAL = 'InternalError',
     NOTFOUND = 'NotFoundError',
-    NOENTRY = 'NoEntryError',
-    NODATA = 'NoDataError',
     BADREQUEST = 'BadRequestError',
     FORBIDDEN = 'ForbiddenError',
     CONFLICT = 'ConflictError',
-    FAILURE = 'FailError',
 }

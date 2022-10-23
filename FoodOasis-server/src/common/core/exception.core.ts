@@ -32,8 +32,6 @@ export abstract class ExceptionCore extends Error {
             case ErrorType.CONFLICT:
                 return new ConflictResponse(err.message)
             case ErrorType.NOTFOUND:
-            case ErrorType.NOENTRY:
-            case ErrorType.NODATA:
                 return new NotFoundResponse(err.message);
             case ErrorType.BADREQUEST:
                 return new BadRequestResponse(err.message);
