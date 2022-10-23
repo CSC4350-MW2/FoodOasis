@@ -1,11 +1,10 @@
-import { ApiResponse } from "@core/response.core";
+import { ResponseCore } from "@core/";
 import { StatusCode, Success, ErrorType } from "@utils/";
 
 /**
  * @class sends Internal Server response to client
  */
-
-export class InternalServerErrorResponse extends ApiResponse {
+export class InternalServerErrorResponse extends ResponseCore {
     constructor(message = 'Internal Error') {
         super();
         this.success = Success.ERROR;

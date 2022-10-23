@@ -1,10 +1,10 @@
-import { ApiResponse } from "@core/response.core";
+import { ResponseCore } from "@core/";
 import { StatusCode, Success, ErrorType } from "@utils/";
 
 /**
  * @class sends unauthorized response to client
  */
-export class UnauthorizedResponse extends ApiResponse {
+export class UnauthorizedResponse extends ResponseCore {
     constructor(message = 'Authentication Failure') {
         super();
         this.success = Success.ERROR;

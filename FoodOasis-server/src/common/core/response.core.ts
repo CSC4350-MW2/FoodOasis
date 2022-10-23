@@ -10,7 +10,7 @@ import { StatusCode, ErrorType, DataResponses } from '@utils/';
 * @arg { ErrorType | string } error - The error type
 * @arg { DataResponses } data - The data payload to be send to client
 */
-export abstract class ApiResponse{
+export abstract class ResponseCore{
     public res: Response;
     public success: boolean;
     public status_code: StatusCode;
@@ -22,20 +22,20 @@ export abstract class ApiResponse{
 
     /**
     * @method prepare sets status code and sends response
-    * @param { T extends ApiResponse } response - The response class instance
+    * @param { T extends ResponseCore } response - The response class instance
     * @return { T } the JSON response to client
     */
-    protected prepare<T extends ApiResponse>(response: T): T{
+    protected prepare<T extends ResponseCore>(response: T): T{
         this.res.status(this.status_code)
-        return ApiResponse.sanitize(response)   
+        return ResponseCore.sanitize(response)   
     }
 
     /**
     * @method sanitize removes undefined properties from response
-    * @param { T extends ApiResponse } response - The response class instance
+    * @param { T extends ResponseCore } response - The response class instance
     * @return { T } The cleaned response object, without undefined fields
     */
-    private static sanitize<T extends ApiResponse>(response: T): T{
+    private static sanitize<T extends ResponseCore>(response: T): T{
         const clone: T = {} as T;
         Object.assign(clone, response);
         

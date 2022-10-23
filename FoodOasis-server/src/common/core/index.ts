@@ -1,0 +1,1 @@
+export { ResponseCore } from './response.core'

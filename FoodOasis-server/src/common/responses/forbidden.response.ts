@@ -1,10 +1,10 @@
-import { ApiResponse } from "@core/response.core";
+import { ResponseCore } from "@core/";
 import { StatusCode, Success, ErrorType } from "@utils/";
 
 /**
  * @class sends forbidden response to client
  */
-export class ForbiddenResponse extends ApiResponse {
+export class ForbiddenResponse extends ResponseCore {
     constructor(message = 'Forbidden') {
         super();
         this.success = Success.ERROR;

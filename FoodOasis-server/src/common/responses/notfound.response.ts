@@ -1,11 +1,11 @@
-import { ApiResponse } from "@core/response.core";
+import { ResponseCore } from "@core/";
 import { StatusCode, Success, ErrorType } from "@utils/";
 import { response } from 'express';
 
 /**
  * @class sends not found response to client
  */
-export class NotFoundResponse extends ApiResponse {
+export class NotFoundResponse extends ResponseCore {
     private url: string | undefined;
 
     constructor(message = 'Not Found') {
