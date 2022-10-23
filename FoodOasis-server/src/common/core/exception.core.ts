@@ -1,4 +1,4 @@
-import { ErrorType } from '@utils/';
+import { ErrorType } from '@utils//';
 import {
     UnauthorizedResponse,
     InternalServerResponse,
@@ -17,7 +17,7 @@ import { AppConfig } from '@config/';
 * @param { string } message - The Error Message
 * @param { error } type - Custom Error Type Message
 */
-export default abstract class ExceptionCore extends Error {
+export abstract class ExceptionCore extends Error {
     constructor(public type: ErrorType, public message: string = 'error', public error?: string) {
         super(type);
     }
