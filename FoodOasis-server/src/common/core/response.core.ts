@@ -1,5 +1,5 @@
 import { Response } from 'express';
-import { StatusCode, ErrorType, DataResponses } from '@utils/';
+import { StatusCode, ErrorType, DataResponses } from '@utils//';
 
 /**
 * @class @abstract 
