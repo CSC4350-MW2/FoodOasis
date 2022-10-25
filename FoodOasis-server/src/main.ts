@@ -14,6 +14,7 @@ import {
 
 const log = new LoggerService(__filename);
 
+// loading all servers
 bootstrapMicroframework({
     loaders: [
         winstonLoader,
