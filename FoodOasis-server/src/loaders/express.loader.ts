@@ -10,7 +10,7 @@ import { AppConfig } from '@config//'
 
 export const expressLoader: MicroframeworkLoader = (settings: MicroframeworkSettings | undefined) => {
     if (settings) {
-
+        const connection = settings.getData('connection');
         const app = express();
 
         // Setting middlewares

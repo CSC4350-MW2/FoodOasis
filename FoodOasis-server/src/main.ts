@@ -20,8 +20,8 @@ bootstrapMicroframework({
     loaders: [
         winstonLoader,
         processLoader,
-        typeormLoader,
         iocLoader,
+        typeormLoader,
         expressLoader,
         swaggerLoader
     ]
