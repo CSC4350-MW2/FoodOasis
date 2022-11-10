@@ -1,6 +1,7 @@
 import { EntityCore } from "@server/common/core/entity.core";
-import { Column, Entity } from "typeorm";
+import { Column, Entity, JoinColumn, OneToOne } from "typeorm";
 import { IAddress } from "../interface/address.interface";
+import { ShopEntity } from "./shop.entity";
 
 @Entity() //injects the type of class into the class (known as a decorator)
 export class AddressEntity extends EntityCore<IAddress> implements IAddress { 
@@ -18,4 +19,11 @@ export class AddressEntity extends EntityCore<IAddress> implements IAddress {
 
     @Column("int")
     zipcode:number;
+
+    @OneToOne(()=> ShopEntity, {onDelete: 'CASCADE'})
+    @JoinColumn({name: "shopId"})
+    shop!: ShopEntity
+
+    @Column('varchar', {unique: true})
+    shopId: string
 }
