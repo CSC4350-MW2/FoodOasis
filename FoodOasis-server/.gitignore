@@ -3,8 +3,6 @@ node_modules
 dist
 
 # configs
-config/.env.defaults
-config/.env.dev
 
 # Outputs
 coverage
