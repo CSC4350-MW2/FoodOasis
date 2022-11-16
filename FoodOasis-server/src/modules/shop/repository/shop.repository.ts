@@ -4,4 +4,4 @@ import { ShopEntity } from '../entity/shop.entity';
 import { RepositoryCore } from '@core//';
 
 @EntityRepository(ShopEntity)
-export class UserRepository extends RepositoryCore<ShopEntity>{}
+export class ShopRepository extends RepositoryCore<ShopEntity>{}
