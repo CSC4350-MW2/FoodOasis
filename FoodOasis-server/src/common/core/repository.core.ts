@@ -2,7 +2,7 @@ import { ConflictError, InternalServerError, NotFoundError} from '@exceptions//'
 import { DatabaseError } from 'pg'
 import { DeepPartial, EntityNotFoundError, ObjectLiteral, QueryFailedError, Repository } from 'typeorm';
 
-export default class RepositoryCore<Entity extends ObjectLiteral> extends Repository<Entity>{
+export class RepositoryCore<Entity extends ObjectLiteral> extends Repository<Entity>{
     async createEntity(body: DeepPartial<Entity>): Promise<Entity> {
         try{
             const entity = this.create(body);
