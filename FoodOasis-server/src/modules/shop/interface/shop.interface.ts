@@ -4,10 +4,10 @@ import { IContact } from "./contact.interface";
 import { IGps } from "./gps.interface";
 
 export interface IShop {
-    id:string,
-    name:string,
-    gps:IGps,
-    address:IAddress,
-    category:ICategory,
-    contact: IContact
+    id?:string,
+    name?:string,
+    gps?:IGps,
+    address?:IAddress,
+    category?:ICategory,
+    contact?: IContact
 }
