@@ -7,6 +7,8 @@ import { useExpressServer } from 'routing-controllers'
 import { MicroframeworkLoader, MicroframeworkSettings } from 'microframework-w3tec';
 
 import { AppConfig } from '@config//'
+import { authorizationChecker } from '@server/authorization/authorizationChecker'
+import { currentUserChecker } from '@server/authorization/currentUserChecker'
 
 export const expressLoader: MicroframeworkLoader = (settings: MicroframeworkSettings | undefined) => {
     if (settings) {
@@ -32,6 +34,8 @@ export const expressLoader: MicroframeworkLoader = (settings: MicroframeworkSett
                 forbidNonWhitelisted: true,
                 forbidUnknownValues: true
             },
+            authorizationChecker: authorizationChecker(connection),
+            currentUserChecker: currentUserChecker(connection)
         });
 
         const expressApp: Application = app

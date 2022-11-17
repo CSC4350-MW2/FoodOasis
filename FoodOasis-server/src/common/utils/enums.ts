@@ -16,3 +16,7 @@ export enum ErrorType {
     FORBIDDEN = 'ForbiddenError',
     CONFLICT = 'ConflictError',
 }
+
+export enum TokenType {
+    BEARER = 'Bearer'
+}
