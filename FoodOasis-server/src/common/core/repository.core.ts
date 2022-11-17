@@ -9,7 +9,10 @@ export class RepositoryCore<Entity extends ObjectLiteral> extends Repository<Ent
             await this.save(entity);
             return entity;
         }
-        catch(err){ throw this.errorHandler(err) }
+        catch(err){ 
+            console.log(err)
+            throw this.errorHandler(err) 
+        }
     }
 
     async updateEntity( query: DeepPartial<Entity>, body: DeepPartial<Entity> ): Promise<Entity> {

@@ -39,7 +39,7 @@
           "@logger/*": ["src/providers/logger/*"],  
       }
   },
-  "include": ["./src", "./test"],
+  "include": ["./src", "./test", "ormconfig.js"],
   "exclude": ["node_modules", "dist"],
   "ts-node": {
       "files": true,

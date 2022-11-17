@@ -24,7 +24,7 @@ export class CreateShopDto{
     @IsOptional()
     @IsObject()
     @ValidateNested()
-    @Type(() => GpsDto)
+    @Type(() => CategoryDto)
     category?: CategoryDto;
 
     @IsOptional()
@@ -36,4 +36,31 @@ export class CreateShopDto{
 
 
 
-export class UpdateShopDto extends CreateShopDto{}
+export class UpdateShopDto {
+    @IsString()
+    name?: string;
+
+    @IsOptional()
+    @IsObject()
+    @ValidateNested()
+    @Type(() => GpsDto)
+    gps?: GpsDto;
+
+    @IsOptional()
+    @IsObject()
+    @ValidateNested()
+    @Type(() => AddressDto)
+    address?: AddressDto;
+
+    @IsOptional()
+    @IsObject()
+    @ValidateNested()
+    @Type(() => CategoryDto)
+    category?: CategoryDto;
+
+    @IsOptional()
+    @IsObject()
+    @ValidateNested()
+    @Type(() => ContactDto)
+    contact?: ContactDto;
+}

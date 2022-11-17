@@ -16,7 +16,7 @@ class DBConfig{
   
     constructor(parsedEnv: ParsedVariables) {
       this.type = String(parsedEnv.DB_TYPE);
-      this.port = Number(parsedEnv.ACCESS_TOKEN_EXPIRATION);
+      this.port = Number(parsedEnv.DB_PORT);
       this.database = String(parsedEnv.DB_DATABASE);
       this.username = String(parsedEnv.DB_USERNAME);
       this.password = String(parsedEnv.DB_PASSWORD);

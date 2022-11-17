@@ -19,6 +19,6 @@ export class UserController {
     @ResponseSchema(ShopResponse)
     async createShop(@Body() body: CreateShopDto, @CurrentUser() {userId}: CurrentUser): Promise<ShopResponse> {
         const shop = await this.shopService.createShop({ userId, ...body })
-        return new SuccessResponse<ShopData>('User Created', { shop })
+        return new SuccessResponse<ShopData>('Shop Created', { shop })
     }
 }

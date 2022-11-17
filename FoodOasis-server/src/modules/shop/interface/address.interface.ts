@@ -3,6 +3,6 @@ export interface IAddress{
     street:string,
     city:string,
     state?:string,
-    country:string,
-    zipcode?:number,
+    country?:string,
+    zipCode?:number,
 }

@@ -7,5 +7,6 @@ export const processLoader: MicroframeworkLoader = (settings: MicroframeworkSett
 
     process.on('unhandledRejection', async(reason:any, p) => {
         log.warn(`Possibly Unhandled Rejection Reason: ${reason.message}`);    
+        console.log(p)
     });
 };

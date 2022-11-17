@@ -27,7 +27,7 @@ export class ShopEntity extends EntityCore<IShop> implements IShop{
     })
     address:IAddress;
     
-    @OneToMany(()=> CategoryEntity, (category)=> category.shop, {
+    @OneToOne(()=> CategoryEntity, (category)=> category.shop, {
         eager: true,
         cascade: true
     })

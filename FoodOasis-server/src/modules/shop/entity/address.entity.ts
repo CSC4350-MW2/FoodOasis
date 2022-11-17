@@ -18,7 +18,7 @@ export class AddressEntity extends EntityCore<IAddress> implements IAddress {
     country:string;
 
     @Column("int")
-    zipcode:number;
+    zipCode:number;
 
     @OneToOne(()=> ShopEntity, {onDelete: 'CASCADE'})
     @JoinColumn({name: "shopId"})

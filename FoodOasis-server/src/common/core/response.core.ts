@@ -1,4 +1,4 @@
-import { Response } from 'express';
+import { response, Response } from 'express';
 import { StatusCode, ErrorType, ResponsesData } from '@utils//';
 
 /**
@@ -11,14 +11,16 @@ import { StatusCode, ErrorType, ResponsesData } from '@utils//';
 * @arg { ResponsesData } data - The data payload to be send to client
 */
 export abstract class ResponseCore{
-    public res: Response;
+    public res?: Response;
     public success: boolean;
     public status_code: StatusCode;
     public message: string;
     public error?: ErrorType | string;
     public data?: ResponsesData;
 
-    constructor(){}
+    constructor(){
+        this.res = response
+    }
 
     /**
     * @method prepare sets status code and sends response
@@ -26,7 +28,7 @@ export abstract class ResponseCore{
     * @return { T } the JSON response to client
     */
     protected prepare<T extends ResponseCore>(response: T): T{
-        this.res.status(this.status_code)
+        this.res?.status(this.status_code)
         return ResponseCore.sanitize(response)   
     }
 
@@ -37,6 +39,7 @@ export abstract class ResponseCore{
     */
     private static sanitize<T extends ResponseCore>(response: T): T{
         const clone: T = {} as T;
+        delete response.res;
         Object.assign(clone, response);
         
         for (const i in clone) if (typeof clone[i] === 'undefined') delete clone[i];
