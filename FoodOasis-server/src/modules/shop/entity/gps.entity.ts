@@ -6,10 +6,10 @@ import { ShopEntity } from "./shop.entity";
 @Entity()
 export class GpsEntity extends EntityCore<IGps> implements IGps{
     @Column("float")
-    latitude: number;
+    latitude: string;
     
     @Column("float")
-    longitude: number;
+    longitude: string;
 
     @OneToOne(()=> ShopEntity, {onDelete: 'CASCADE'})
     @JoinColumn({name: "shopId"})

@@ -1,7 +1,6 @@
 import { EntityCore } from "@server/common/core/entity.core";
 import { CategoryEntity } from "@server/modules/category/entity/category.entity";
 import { ICategory } from "@server/modules/category/interface/category.interface";
-import { UserEntity } from "@server/modules/user/entity/user.entity";
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne } from "typeorm";
 import { IAddress } from "../interface/address.interface";
 import { IContact } from "../interface/contact.interface";
@@ -39,10 +38,6 @@ export class ShopEntity extends EntityCore<IShop> implements IShop{
         cascade: true
     })
     contact: IContact;
-
-    @ManyToOne(()=> UserEntity, {onDelete: 'CASCADE'})
-    @JoinColumn({name: "userId"})
-    user!: UserEntity
 
     @Column('varchar', {unique: true})
     userId: string

@@ -5,6 +5,7 @@ import { IGps } from "./gps.interface";
 
 export interface IShop {
     id?:string,
+    userId?: string,
     name?:string,
     gps?:IGps,
     address?:IAddress,

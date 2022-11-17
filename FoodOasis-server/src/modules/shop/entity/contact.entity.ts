@@ -6,7 +6,7 @@ import { ShopEntity } from "./shop.entity";
 @Entity()
 export class ContactEntity extends EntityCore<IContact> implements IContact{ //export the class allows it to be accessible outside  
     @Column("int")
-    phone:number;
+    phone:string;
 
     @Column("varchar")
     social:string;
