@@ -1,5 +1,5 @@
 export interface IGps{
-    id:string,
-    latitude:number,
-    longitude:number,
+    id?:string,
+    latitude?:string,
+    longitude?:string,
 }

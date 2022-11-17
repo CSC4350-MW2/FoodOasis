@@ -7,7 +7,7 @@ import { GpsDto } from './gps.dto';
 
 export class CreateShopDto{
     @IsString()
-    name: string;
+    name?: string;
 
     @IsOptional()
     @IsObject()

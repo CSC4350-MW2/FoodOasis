@@ -1,6 +1,6 @@
 export interface IContact{
-    id:string,
-    phone:number,
-    social:string,
-    website:string,
+    id?:string,
+    phone:string,
+    social?:string,
+    website?:string,
 }

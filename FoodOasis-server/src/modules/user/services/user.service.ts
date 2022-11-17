@@ -15,6 +15,7 @@ export class UserService{
 
     async createUser(data: User) {
         const user = await this.userRepository.createEntity(data)
+
         return user
     }
 

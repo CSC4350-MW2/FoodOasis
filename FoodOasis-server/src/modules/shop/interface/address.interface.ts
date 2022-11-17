@@ -1,8 +1,8 @@
 export interface IAddress{
-    id:string,
+    id?:string,
     street:string,
     city:string,
-    state:string,
+    state?:string,
     country:string,
-    zipcode:number,
+    zipcode?:number,
 }

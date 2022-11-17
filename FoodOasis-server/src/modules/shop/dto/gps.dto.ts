@@ -2,7 +2,7 @@ import { IsString, IsOptional } from 'class-validator'
 
 export class GpsDto {
     @IsString()
-    latitude: string;
+    latitude?: string;
 
     @IsString()
     longitude?: string;

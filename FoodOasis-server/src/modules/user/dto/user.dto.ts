@@ -1,4 +1,3 @@
-import { CategoryDto } from '@server/modules/category/dto/category.dto';
 import { CreateShopDto } from '@server/modules/shop/dto/shop.dto';
 import { Type } from 'class-transformer';
 import { IsString, IsOptional, IsObject, ValidateNested } from 'class-validator'
@@ -6,7 +5,7 @@ import { IsString, IsOptional, IsObject, ValidateNested } from 'class-validator'
 export class CreateUserDto{
     @IsOptional()
     @IsString()
-    userId: string;
+    userId?: string;
 
     @IsOptional()
     @IsObject()
