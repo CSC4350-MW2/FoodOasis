@@ -3,7 +3,7 @@ import { ShopEntity } from "@server/modules/shop/entity/shop.entity";
 import { Column, Entity, JoinColumn, ManyToOne } from "typeorm";
 import { ICategory } from "../interface/category.interface";
 
-@Entity() //injects the type of class into the class (known as a decorator)
+@Entity({name: "categories"}) //injects the type of class into the class (known as a decorator)
 export class CategoryEntity extends EntityCore<ICategory> implements ICategory { 
 
     @Column("varchar")

@@ -3,7 +3,7 @@ import { Column, Entity, JoinColumn, OneToOne } from "typeorm";
 import { IGps } from "../interface/gps.interface";
 import { ShopEntity } from "./shop.entity";
 
-@Entity()
+@Entity({name: "gps"})
 export class GpsEntity extends EntityCore<IGps> implements IGps{
     @Column("float")
     latitude: string;

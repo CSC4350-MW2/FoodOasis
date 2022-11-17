@@ -1,5 +1,5 @@
 import { Response } from 'express';
-import { StatusCode, ErrorType, DataResponses } from '@utils//';
+import { StatusCode, ErrorType, ResponsesData } from '@utils//';
 
 /**
 * @class @abstract 
@@ -8,7 +8,7 @@ import { StatusCode, ErrorType, DataResponses } from '@utils//';
 * @arg { StatusCode } status_code - The status code for responses
 * @arg { string } message - The response message to client
 * @arg { ErrorType | string } error - The error type
-* @arg { DataResponses } data - The data payload to be send to client
+* @arg { ResponsesData } data - The data payload to be send to client
 */
 export abstract class ResponseCore{
     public res: Response;
@@ -16,7 +16,7 @@ export abstract class ResponseCore{
     public status_code: StatusCode;
     public message: string;
     public error?: ErrorType | string;
-    public data?: DataResponses;
+    public data?: ResponsesData;
 
     constructor(){}
 

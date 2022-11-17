@@ -1,7 +1,7 @@
 import { EntityCore } from "@server/common/core/entity.core";
 import { CategoryEntity } from "@server/modules/category/entity/category.entity";
 import { ICategory } from "@server/modules/category/interface/category.interface";
-import { Column, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne } from "typeorm";
+import { Column, Entity, OneToMany, OneToOne } from "typeorm";
 import { IAddress } from "../interface/address.interface";
 import { IContact } from "../interface/contact.interface";
 import { IGps } from "../interface/gps.interface";
@@ -10,7 +10,7 @@ import { AddressEntity } from "./address.entity";
 import { ContactEntity } from "./contact.entity";
 import { GpsEntity } from "./gps.entity";
 
-@Entity()
+@Entity({name: "shops"})
 export class ShopEntity extends EntityCore<IShop> implements IShop{
     @Column("varchar")
     name:string;

@@ -3,7 +3,7 @@ import { Column, Entity, JoinColumn, OneToOne } from "typeorm";
 import { IAddress } from "../interface/address.interface";
 import { ShopEntity } from "./shop.entity";
 
-@Entity() //injects the type of class into the class (known as a decorator)
+@Entity({name: "addresses"}) //injects the type of class into the class (known as a decorator)
 export class AddressEntity extends EntityCore<IAddress> implements IAddress { 
     @Column("varchar") 
     street:string;

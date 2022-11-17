@@ -1,4 +1,5 @@
 import { resolve } from 'path'
+import { DatabaseError } from 'pg'
 import { DataSource } from 'typeorm';
 import { MicroframeworkLoader, MicroframeworkSettings } from 'microframework-w3tec';
 
@@ -28,7 +29,5 @@ export const typeormLoader: MicroframeworkLoader = async (settings: Microframewo
             }
 
     }
-    catch(e){
-        console.log(e)
-    }
+    catch(e){ throw e }
 };
