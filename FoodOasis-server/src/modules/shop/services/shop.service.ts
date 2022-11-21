@@ -23,6 +23,11 @@ export class ShopService{
         return shop
     }
     
+    async listShops() {
+        const shops = await this.shopRepository.find();
+        return shops
+    }
+
     async findOneOrFail(query: FilterShop){
         try{ return await this.shopRepository.findOneOrFail({ where: query });}
         catch(err){ throw new NotFoundError("shop not found") }

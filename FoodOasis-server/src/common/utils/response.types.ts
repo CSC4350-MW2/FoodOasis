@@ -1,7 +1,7 @@
-import { ShopData } from "@server/modules/shop/dto/responses/shop.response"
+import { ShopData, ShopsData } from "@server/modules/shop/dto/responses/shop.response"
 import { IsBoolean, IsNumber, IsOptional, IsString } from "class-validator"
 
-export class BasePayload{
+export class BasePayload<T>{
     @IsBoolean()
     success: boolean
 
@@ -15,8 +15,6 @@ export class BasePayload{
     @IsString()
     error?: string
 
-    data?: ResponsesData
+    data?: T
 
 }
-
-export type ResponsesData = ShopData

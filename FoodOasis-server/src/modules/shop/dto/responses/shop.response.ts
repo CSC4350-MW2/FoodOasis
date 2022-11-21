@@ -1,6 +1,6 @@
 import { BasePayload } from "@server/common/utils/response.types"
 import { Type } from "class-transformer"
-import { ValidateNested } from "class-validator"
+import { IsArray, ValidateNested } from "class-validator"
 import { UpdateShopDto } from "../shop.dto"
 
 
@@ -10,8 +10,21 @@ export class ShopData {
     shop?: UpdateShopDto
 }
 
-export class ShopResponse extends BasePayload{
+export class ShopsData {
+    @IsArray()
+    @ValidateNested({each: true})
+    @Type(() => UpdateShopDto)
+    shops?: UpdateShopDto[];
+}
+
+export class ShopResponse extends BasePayload<ShopData>{
     @ValidateNested()
     @Type(() => ShopData)
     data?: ShopData
+}
+
+export class ShopsResponse extends BasePayload<ShopsData>{
+    @ValidateNested()
+    @Type(() => ShopData)
+    data?: ShopsData
 }

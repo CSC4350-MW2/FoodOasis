@@ -1,10 +1,10 @@
 import { ResponseCore } from "@core//";
-import { ResponsesData, StatusCode, Success } from "@utils//";
+import { StatusCode, Success } from "@utils//";
 
 /**
  * @class sends success response to client
  */
-export class SuccessResponse<T extends ResponsesData> extends ResponseCore{
+export class SuccessResponse<T> extends ResponseCore{
     constructor(message: string, data?: T) {
         super()
         this.success = Success.SUCCESS;

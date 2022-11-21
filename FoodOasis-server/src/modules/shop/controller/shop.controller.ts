@@ -5,7 +5,7 @@ import { Controller, Body, Post, Get, CurrentUser, Authorized, Put } from 'routi
 import { SuccessResponse } from '@responses//';
 import { ShopService } from '../services/shop.service';
 import { CreateShopDto, UpdateShopDto } from '../dto/shop.dto';
-import { ShopData, ShopResponse } from '../dto/responses/shop.response';
+import { ShopData, ShopResponse, ShopsData, ShopsResponse } from '../dto/responses/shop.response';
 
 @Service()
 @Controller('/api/v1/shops')
@@ -22,10 +22,16 @@ export class UserController {
         return new SuccessResponse<ShopData>('Shop Created', { shop });
     }
 
+    @Get()
+    @ResponseSchema(ShopsResponse)
+    async listShops(): Promise<ShopsResponse> {
+        const shops = await this.shopService.listShops();
+        return new SuccessResponse<ShopsData>('Shops found', { shops });
+    }
+
     @Get('/:id')
-    @Authorized()
     @ResponseSchema(ShopResponse)
-    async getProfile(@CurrentUser() {userId}: CurrentUser ): Promise<ShopResponse> {
+    async getShop(@CurrentUser() {userId}: CurrentUser ): Promise<ShopResponse> {
         const shop = await this.shopService.getShop({ userId });
         return new SuccessResponse<ShopData>('Shop Found', { shop });
     }
@@ -33,7 +39,7 @@ export class UserController {
     @Put('/:id')
     @Authorized()
     @ResponseSchema(ShopResponse)
-    async updateProfile(@Body() body: UpdateShopDto, @CurrentUser() {userId}: CurrentUser): Promise<ShopResponse> {
+    async updateShop(@Body() body: UpdateShopDto, @CurrentUser() {userId}: CurrentUser): Promise<ShopResponse> {
         const shop = await this.shopService.update({ userId }, body);
         return new SuccessResponse<ShopData>('Shop Profile', { shop });
     }
