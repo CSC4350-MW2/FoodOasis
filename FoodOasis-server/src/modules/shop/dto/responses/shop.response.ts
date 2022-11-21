@@ -25,6 +25,6 @@ export class ShopResponse extends BasePayload<ShopData>{
 
 export class ShopsResponse extends BasePayload<ShopsData>{
     @ValidateNested()
-    @Type(() => ShopData)
+    @Type(() => ShopsData)
     data?: ShopsData
 }
