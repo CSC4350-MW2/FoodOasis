@@ -39,6 +39,6 @@ export class ShopEntity extends EntityCore<IShop> implements IShop{
     })
     contact: IContact;
 
-    @Column('varchar', {unique: true})
+    @Column('varchar')
     userId: string
 }

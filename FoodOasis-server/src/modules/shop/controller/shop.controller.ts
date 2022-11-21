@@ -21,4 +21,12 @@ export class UserController {
         const shop = await this.shopService.createShop({ userId, ...body })
         return new SuccessResponse<ShopData>('Shop Created', { shop })
     }
+
+    @Get('/:id')
+    @Authorized()
+    @ResponseSchema(ShopResponse)
+    async getProfile(@CurrentUser() {userId}: CurrentUser ): Promise<ShopResponse> {
+        const shop = await this.shopService.getShop({ userId })
+        return new SuccessResponse<ShopData>('Shop Found', { shop })
+    }
 }

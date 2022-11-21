@@ -10,7 +10,6 @@ export class RepositoryCore<Entity extends ObjectLiteral> extends Repository<Ent
             return entity;
         }
         catch(err){ 
-            console.log(err)
             throw this.errorHandler(err) 
         }
     }
@@ -35,7 +34,7 @@ export class RepositoryCore<Entity extends ObjectLiteral> extends Repository<Ent
             switch (err.code) { 
                 case 'ER_DUP_ENTRY':
                 case '23505':
-                    throw new ConflictError('user already exists')   
+                    throw new ConflictError('shop already exists')   
             }
           }
         
