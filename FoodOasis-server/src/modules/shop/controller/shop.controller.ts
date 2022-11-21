@@ -35,6 +35,6 @@ export class UserController {
     @ResponseSchema(ShopResponse)
     async updateProfile(@Body() body: UpdateShopDto, @CurrentUser() {userId}: CurrentUser): Promise<ShopResponse> {
         const shop = await this.shopService.update({ userId }, body);
-        return new SuccessResponse<ShopData>('Updated Profile', { shop });
+        return new SuccessResponse<ShopData>('Shop Profile', { shop });
     }
 }
