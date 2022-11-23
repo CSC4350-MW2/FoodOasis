@@ -1,18 +1,19 @@
 package com.example.foodoasis_client
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.foodoasis_client.api.AuthService
 import com.example.foodoasis_client.api.ServiceBuilder
 import com.example.foodoasis_client.model.auth.AuthUser
 import com.example.foodoasis_client.model.auth.LoginCredentials
 import kotlinx.android.synthetic.main.activity_login.*
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
+import retrofit2.HttpException
 import retrofit2.Response
+import java.io.IOException
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,14 +40,29 @@ class LoginActivity : AppCompatActivity() {
                         val body = response.body()
                         if (response.isSuccessful) {
                             finish() // Move back to AuthUser
-                            Toast.makeText(context, body?.message, Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, body?.data?.user?.id, Toast.LENGTH_SHORT).show()
                         } else {
-                            Toast.makeText(context, body?.message, Toast.LENGTH_SHORT).show()
+                            try {
+                                val jObjError = JSONObject(response.errorBody()!!.charStream().readText())
+                                Toast.makeText(
+                                    context,
+                                    jObjError.getString("message"),
+                                    Toast.LENGTH_LONG
+                                ).show()
+                            } catch (e: Exception) {
+                                Toast.makeText(context, e.message, Toast.LENGTH_LONG).show()
+                            }
                         }
                     }
 
+
                     override fun onFailure(call: Call<AuthUser>, t: Throwable) {
-                        Toast.makeText( context, t.message, Toast.LENGTH_SHORT).show()
+                        val errorMessage = when (t) {
+                            is IOException -> "No internet connection"
+                            is HttpException -> "Something went wrong!"
+                            else -> t.localizedMessage
+                        }
+                        Toast.makeText( context, errorMessage, Toast.LENGTH_SHORT).show()
                     }
                 })
             }
