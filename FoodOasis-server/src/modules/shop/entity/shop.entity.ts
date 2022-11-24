@@ -16,25 +16,23 @@ export class ShopEntity extends EntityCore<IShop> implements IShop{
     name:string;
     
     @OneToOne(()=> GpsEntity, (gps)=> gps.shop, {
-        eager: true, // eager: loads the gps column as well otherwise will not come
         cascade: true // adds the related object into the main object
     })
-    gps:IGps;
+    gps?:IGps;
     
     @OneToOne(()=> AddressEntity, (address)=> address.shop, {
         eager: true,
         cascade: true
     })
-    address:IAddress;
+    address?:IAddress;
     
     @OneToOne(()=> CategoryEntity, (category)=> category.shop, {
         eager: true,
         cascade: true
     })
-    category: ICategory;
+    category?: ICategory;
 
     @OneToOne(()=> ContactEntity, (contact)=> contact.shop, {
-        eager: true,
         cascade: true
     })
     contact: IContact;

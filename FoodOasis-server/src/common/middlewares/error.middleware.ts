@@ -1,7 +1,7 @@
 import { Service } from 'typedi'
 import { ValidationError } from 'class-validator'
 import { Request, Response, NextFunction } from 'express'
-import { Middleware, ExpressErrorMiddlewareInterface } from 'routing-controllers';
+import { Middleware, ExpressErrorMiddlewareInterface, InternalServerError } from 'routing-controllers';
 
 import { LoggerService } from '@providers/logger';
 import { BadRequestError, UnauthorizedError } from '@exceptions//'
@@ -47,7 +47,7 @@ export class CustomErrorHandler implements ExpressErrorMiddlewareInterface {
         }
 
         this.log.error(error)
-        response.json(new UnauthorizedError()) 
+        response.json(new InternalServerError(error)) 
         
         return next();
   }

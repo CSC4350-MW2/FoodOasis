@@ -1,7 +1,7 @@
 import { Service } from 'typedi'
 import { InjectRepository } from 'typeorm-typedi-extensions'
 
-import { FullShop, Shop } from '../shop.types'
+import { FullShop, Shop, ShopsListing } from '../shop.types'
 import { FilterShop, UpdateShop } from '../shop.types'
 import { ShopRepository } from '../repository/shop.repository'
 import { NotFoundError } from '@exceptions//'
@@ -24,7 +24,7 @@ export class ShopService{
     }
     
     async listShops() {
-        const shops = await this.shopRepository.find();
+        const shops = await this.shopRepository.find({select: ['id', 'name']});
         return shops
     }
 
