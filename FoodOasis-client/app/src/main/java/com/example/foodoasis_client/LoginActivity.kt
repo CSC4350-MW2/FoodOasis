@@ -3,8 +3,8 @@ package com.example.foodoasis_client
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.foodoasis_client.api.AuthService
-import com.example.foodoasis_client.api.ServiceBuilder
+import com.example.foodoasis_client.service.AuthService
+import com.example.foodoasis_client.service.ServiceBuilder
 import com.example.foodoasis_client.model.auth.AuthUser
 import com.example.foodoasis_client.model.auth.LoginCredentials
 import kotlinx.android.synthetic.main.activity_login.*

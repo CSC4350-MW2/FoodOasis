@@ -1,4 +1,4 @@
-package com.example.foodoasis_client.api
+package com.example.foodoasis_client.service
 
 import android.os.Build
 import okhttp3.Interceptor
@@ -9,6 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.*
 import java.util.concurrent.TimeUnit
 import com.example.foodoasis_client.utils.Constants.Companion.AUTH_BASE_URL
+import com.example.foodoasis_client.utils.Constants.Companion.FOOD_OASIS_URL
 
 object ServiceBuilder {
 
@@ -35,7 +36,7 @@ object ServiceBuilder {
         .addInterceptor(logger)
 
     // Create Retrofit Builder
-    private val builder = Retrofit.Builder().baseUrl(AUTH_BASE_URL)
+    private val builder = Retrofit.Builder().baseUrl(FOOD_OASIS_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .client(okHttp.build())
 

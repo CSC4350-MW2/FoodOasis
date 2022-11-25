@@ -1,4 +1,4 @@
-package com.example.foodoasis_client.api
+package com.example.foodoasis_client.service
 
 import com.example.foodoasis_client.model.auth.AuthUser
 import com.example.foodoasis_client.model.auth.LoginCredentials
