@@ -8,12 +8,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.foodoasis_client.adapter.ShopsAdapter
 import com.example.foodoasis_client.model.shops.Shop
-import com.example.foodoasis_client.viewModel.ShopViewModel
+import com.example.foodoasis_client.viewModel.ShopsViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var shopViewModel: ShopViewModel
+    private lateinit var shopViewModel: ShopsViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loadShops(){
-        shopViewModel = ViewModelProvider(this)[ShopViewModel::class.java]
+        shopViewModel = ViewModelProvider(this)[ShopsViewModel::class.java]
         shopViewModel.getShopsData(this)
         shopViewModel.shopDataList.observe(this) {
             initShopsAdapter(it)

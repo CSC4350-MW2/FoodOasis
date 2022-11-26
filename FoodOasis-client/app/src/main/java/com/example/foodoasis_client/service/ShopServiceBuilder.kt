@@ -1,6 +1,7 @@
 package com.example.foodoasis_client.service
 
 import android.os.Build
+import com.example.foodoasis_client.utils.Constants.Companion.FOOD_OASIS_URL
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -8,11 +9,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.*
 import java.util.concurrent.TimeUnit
-import com.example.foodoasis_client.utils.Constants.Companion.AUTH_BASE_URL
-import com.example.foodoasis_client.utils.Constants.Companion.FOOD_OASIS_URL
 
-object ServiceBuilder {
-
+object ShopServiceBuilder {
     // Create Logger
     private val logger = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 
@@ -46,4 +44,5 @@ object ServiceBuilder {
     fun <T> buildService(serviceType: Class<T>): T {
         return retrofit.create(serviceType)
     }
+
 }
