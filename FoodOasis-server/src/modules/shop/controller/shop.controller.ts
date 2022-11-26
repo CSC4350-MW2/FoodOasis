@@ -29,6 +29,15 @@ export class UserController {
         return new SuccessResponse<ShopsData>('Shops found', { shops });
     }
 
+
+    @Get('/user/:id')
+    @Authorized()
+    @ResponseSchema(ShopsResponse)
+    async listOwnedShops(@CurrentUser() {userId}: CurrentUser): Promise<ShopsResponse> {
+        const shops = await this.shopService.listShops({userId});
+        return new SuccessResponse<ShopsData>('Shops found', { shops });
+    }
+
     @Get('/:id')
     @ResponseSchema(ShopResponse)
     async getShop(@CurrentUser() {userId}: CurrentUser ): Promise<ShopResponse> {

@@ -23,8 +23,8 @@ export class ShopService{
         return shop
     }
     
-    async listShops() {
-        const shops = await this.shopRepository.find({select: ['id', 'name']});
+    async listShops(query?: FilterShop) {
+        const shops = await this.shopRepository.find({select: ['id', 'name'], where: query});
         return shops
     }
 
