@@ -36,10 +36,10 @@ class LoginActivity : AppCompatActivity() {
         authViewModel.loginUser(this, newLoginCredentials)
         authViewModel.verifiedUser.observe(this) {
             val context = this
-            val intent = Intent(context, CreateShopActivity::class.java)
-            intent.putExtra(CreateShopActivity.ARG_USERNAME, it?.user?.username)
-            intent.putExtra(CreateShopActivity.ARG_USER_ID, it?.user?.id)
-            intent.putExtra(CreateShopActivity.ARG_ACCESS_TOKEN, it?.tokens?.accessToken)
+            val intent = Intent(context, ProfileActivity::class.java)
+            intent.putExtra(ProfileActivity.ARG_USERNAME, it?.user?.username)
+            intent.putExtra(ProfileActivity.ARG_USER_ID, it?.user?.id)
+            intent.putExtra(ProfileActivity.ARG_ACCESS_TOKEN, it?.tokens?.accessToken)
             context.startActivity(intent)
         }
     }
