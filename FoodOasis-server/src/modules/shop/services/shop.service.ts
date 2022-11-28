@@ -24,7 +24,7 @@ export class ShopService{
     }
     
     async listShops(query?: FilterShop) {
-        const shops = await this.shopRepository.find({select: ['id', 'name'], where: query});
+        const shops = await this.shopRepository.find({select: ['id', 'name'], where: query, relations: ['gps']});
         return shops
     }
 
@@ -48,10 +48,20 @@ export class ShopService{
         return shop
     }
 
-    async arrangedShops(shops: FullShop[], gps: {lat: number, long: number}){
-        shops.map(shop => {
-            shop.gps?.latitude
+    async arrangeShops(shops: FullShop[], gps: {lat: number, long: number}){
+        var arrangedIndex: {index: number, distance: number}[] = []
+        var arrangedShops: FullShop[] = []
+        shops.map((shop, index) => {
+            let lat = Number(shop.gps?.latitude);
+            let long = Number(shop.gps?.longitude);
+            arrangedIndex.push({index, distance: this.haversineDistance(gps, {lat, long})})
+            delete shop.gps
         })
+        arrangedIndex.sort((a, b) => { return a.distance - b.distance });
+        arrangedIndex.map(arrangedShop => {
+            arrangedShops.push(shops[arrangedShop.index])
+        })
+        return arrangedShops;
     }
 
     haversineDistance(dist1: {lat: number, long: number}, dist2: {lat: number, long: number}): number{
