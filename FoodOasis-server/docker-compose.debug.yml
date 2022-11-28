@@ -1,14 +1,14 @@
-# version: '3.4'
+version: '3.4'
 
-# services:
-#   authentication:
-#     image: food-oasis-service
-#     build:
-#       context: .
-#       dockerfile: ./Dockerfile
-#     environment:
-#       NODE_ENV: development
-#     ports:
-#       - 4044:4044
-#       - 5432:5432
-#     command: ["node", "--inspect=0.0.0.0:9229", "main.js"]
+services:
+  authentication:
+    image: food-oasis-service
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: development
+    ports:
+      - 4044:4044
+      - 5432:5432
+    command: ["node", "--inspect=0.0.0.0:9229", "main.js"]

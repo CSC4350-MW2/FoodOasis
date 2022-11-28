@@ -1,26 +1,26 @@
-# version: '3'
-# services:
-#   db:
-#     image: postgres
-#     networks:
-#       - webnet
-#     env_file:
-#       - ./config/.env.dev
-#     environment:
-#       POSTGRES_PASSWORD: "postgres"
-#       POSTGRES_USER: postgres
-#       POSTGRES_DB: authentication
-#   web:
-#     image: team1/food-oasis-service
-#     ports:
-#       - 4044:4044
-#     networks:
-#       - webnet
-#     environment:
-#       DB_HOST: db
+version: '3'
+services:
+  db:
+    image: postgres
+    networks:
+      - webnet
+    env_file:
+      - ./config/.env.dev
+    environment:
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_USER: postgres
+      POSTGRES_DB: authentication
+  web:
+    image: team1/food-oasis-service
+    ports:
+      - 4044:4044
+    networks:
+      - webnet
+    environment:
+      DB_HOST: db
       
-#     command: ["./wait-for-it.sh", "db:5432", "--", "npm", "run", "start:dev"]
+    command: ["./wait-for-it.sh", "db:5432", "--", "npm", "run", "start:dev"]
 
-# networks:
-#   webnet:
+networks:
+  webnet:
 
