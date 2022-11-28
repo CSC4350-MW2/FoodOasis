@@ -31,6 +31,7 @@ export class RepositoryCore<Entity extends ObjectLiteral> extends Repository<Ent
 
         if (error instanceof QueryFailedError) {
             const err = error.driverError as DatabaseError;
+            console.log(err)
             switch (err.code) { 
                 case 'ER_DUP_ENTRY':
                 case '23505':

@@ -1,6 +1,6 @@
 import { Service } from 'typedi'
 import { ResponseSchema } from 'routing-controllers-openapi';
-import { Controller, Body, Post, Get, CurrentUser, Authorized, Put } from 'routing-controllers';
+import { Controller, Body, Post, Get, CurrentUser, Authorized, Put, Param } from 'routing-controllers';
 
 import { SuccessResponse } from '@responses//';
 import { ShopService } from '../services/shop.service';
@@ -40,16 +40,16 @@ export class UserController {
 
     @Get('/:id')
     @ResponseSchema(ShopResponse)
-    async getShop(@CurrentUser() {userId}: CurrentUser ): Promise<ShopResponse> {
-        const shop = await this.shopService.getShop({ userId });
+    async getShop(@Param('id') shopId: string): Promise<ShopResponse> {
+        const shop = await this.shopService.getShop({id: shopId})
         return new SuccessResponse<ShopData>('Shop Found', { shop });
     }
 
     @Put('/:id')
     @Authorized()
     @ResponseSchema(ShopResponse)
-    async updateShop(@Body() body: UpdateShopDto, @CurrentUser() {userId}: CurrentUser): Promise<ShopResponse> {
-        const shop = await this.shopService.update({ userId }, body);
+    async updateShop(@Body() body: UpdateShopDto, @CurrentUser() {userId}: CurrentUser, @Param('id') shopId: string): Promise<ShopResponse> {
+        const shop = await this.shopService.update({ userId, id: shopId }, body);
         return new SuccessResponse<ShopData>('Shop Profile', { shop });
     }
 }

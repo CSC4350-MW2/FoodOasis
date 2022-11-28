@@ -1,9 +1,8 @@
 package com.example.foodoasis_client
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.foodoasis_client.adapter.ShopsAdapter
@@ -13,23 +12,22 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var shopViewModel: ShopsViewModel
+    private lateinit var shopsViewModel: ShopsViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         loadShops()
 
-        val login = findViewById<Button>(R.id.loginButtonHome)
-        val signup = findViewById<Button>(R.id.signupButtonHome)
-        login.setOnClickListener { startActivity(Intent(this, LoginActivity::class.java)) }
-        signup.setOnClickListener { startActivity(Intent(this, SignupActivity::class.java)) }
+        loginButtonHome.setOnClickListener { startActivity(Intent(this, LoginActivity::class.java)) }
+        signupButtonHome.setOnClickListener { startActivity(Intent(this, SignupActivity::class.java)) }
     }
 
     private fun loadShops(){
-        shopViewModel = ViewModelProvider(this)[ShopsViewModel::class.java]
-        shopViewModel.getShopsData(this)
-        shopViewModel.shopDataList.observe(this) {
+        shopsViewModel = ViewModelProvider(this)[ShopsViewModel::class.java]
+        shopsViewModel.getShopsData(this)
+        shopsViewModel.shopDataList.observe(this) {
             initShopsAdapter(it)
         }
     }

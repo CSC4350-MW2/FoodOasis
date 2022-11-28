@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <TextView
+            android:text="Shop Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/shopTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.106"
+            android:textSize="22sp"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:layout_marginEnd="40dp"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintHorizontal_bias="0.807" />
+
+    <ImageView
+            android:layout_width="172dp"
+            android:layout_height="92dp"
+            android:src="@drawable/img"
+            android:id="@+id/imageView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.071"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.113"
+            android:contentDescription="Just image" />
+
+    <View
+            android:id="@+id/divider"
+            android:layout_width="409dp"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            android:layout_marginTop="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:helperText="Category"
+            app:layout_constraintVertical_bias="0.328"
+            app:helperTextTextAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp"
+            android:id="@+id/shopCategoryInput"
+            app:layout_constraintHorizontal_bias="0.0">
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Category"
+            android:id="@+id/shopCategory"
+            android:textColor="@android:color/black"
+            app:layout_constraintEnd_toEndOf="@+id/shopCategoryInput"
+            app:layout_constraintStart_toStartOf="@+id/shopCategoryInput"
+            android:textStyle="bold|italic"
+            android:minHeight="48dp"
+            android:textColorHint="#78909C"
+            app:layout_constraintTop_toBottomOf="@+id/shopCategoryInput"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:helperText="Address"
+            app:layout_constraintVertical_bias="0.485"
+            app:helperTextTextAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp"
+            android:id="@+id/shopAddressInput"
+            app:layout_constraintHorizontal_bias="0.0">
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Street"
+            android:id="@+id/shopStreet"
+            android:textColor="@android:color/black"
+            app:layout_constraintEnd_toEndOf="@+id/shopAddressInput"
+            app:layout_constraintStart_toStartOf="@+id/shopAddressInput"
+            android:textStyle="bold|italic"
+            android:minHeight="48dp"
+            android:textColorHint="#78909C"
+            app:layout_constraintTop_toBottomOf="@+id/shopAddressInput"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:helperText="Contact"
+            app:layout_constraintVertical_bias="0.102"
+            app:helperTextTextAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp"
+            android:id="@+id/shopContactInput"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintTop_toBottomOf="@+id/shopStreet">
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contact"
+            android:id="@+id/shopContact"
+            android:textColor="@android:color/black"
+            app:layout_constraintEnd_toEndOf="@+id/shopContactInput"
+            app:layout_constraintStart_toStartOf="@+id/shopContactInput"
+            android:textStyle="bold|italic"
+            android:minHeight="48dp"
+            android:textColorHint="#78909C"
+            app:layout_constraintTop_toBottomOf="@+id/shopContactInput"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp"
+            app:layout_constraintHorizontal_bias="0.266" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -29,7 +29,13 @@ export class ShopService{
     }
 
     async findOneOrFail(query: FilterShop){
-        try{ return await this.shopRepository.findOneOrFail({ where: query });}
+        try{ 
+            return await this.shopRepository.findOneOrFail({
+                select: ['id', 'name'],
+                where: query, 
+                relations: ['contact', 'gps'] 
+            });
+        }
         catch(err){ throw new NotFoundError("shop not found") }
     }
 

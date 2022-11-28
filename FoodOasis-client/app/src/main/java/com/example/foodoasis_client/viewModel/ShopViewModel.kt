@@ -4,8 +4,8 @@ import android.content.Context
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.foodoasis_client.model.shops.Shop
-import com.example.foodoasis_client.model.shops.ShopsList
+import com.example.foodoasis_client.model.shop.Shop
+import com.example.foodoasis_client.model.shop.ShopResponse
 import com.example.foodoasis_client.service.ShopService
 import com.example.foodoasis_client.service.ShopServiceBuilder
 import org.json.JSONObject
@@ -15,18 +15,18 @@ import retrofit2.HttpException
 import retrofit2.Response
 import java.io.IOException
 
-class ShopsViewModel : ViewModel() {
-    var shopDataList = MutableLiveData<List<Shop>>()
+class ShopViewModel : ViewModel() {
+    var shopData = MutableLiveData<Shop>()
 
-    fun getShopsData(context: Context){
+    fun getShopData(context: Context, id: String){
         val shopService = ShopServiceBuilder.buildService(ShopService::class.java)
-        val requestCall = shopService.getShops()
+        val requestCall = shopService.getShop(id)
 
-        requestCall.enqueue(object: Callback<ShopsList> {
-            override fun onResponse(call: Call<ShopsList>, response: Response<ShopsList>) {
+        requestCall.enqueue(object: Callback<ShopResponse> {
+            override fun onResponse(call: Call<ShopResponse>, response: Response<ShopResponse>) {
                 val body = response.body()!!
                 if (response.isSuccessful) {
-                    shopDataList.value = body.data.shops
+                    shopData.value = body.data.shop
                 } else {
                     try {
                         val jObjError = JSONObject(response.errorBody()!!.charStream().readText())
@@ -41,8 +41,7 @@ class ShopsViewModel : ViewModel() {
                 }
             }
 
-
-            override fun onFailure(call: Call<ShopsList>, t: Throwable) {
+            override fun onFailure(call: Call<ShopResponse>, t: Throwable) {
                 val errorMessage = when (t) {
                     is IOException -> "No internet connection"
                     is HttpException -> "Something went wrong!"
