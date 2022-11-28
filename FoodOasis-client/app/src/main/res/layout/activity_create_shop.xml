@@ -20,7 +20,7 @@
             android:layout_marginStart="30dp"
             app:helperTextTextAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintVertical_bias="0.048"
+            app:layout_constraintVertical_bias="0.171"
             android:id="@+id/textInputLayout">
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -51,7 +51,7 @@
             android:layout_marginStart="30dp"
             app:helperTextTextAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintVertical_bias="0.192"
+            app:layout_constraintVertical_bias="0.303"
             android:id="@+id/textInputLayout2">
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -95,7 +95,7 @@
             android:layout_marginStart="30dp"
             app:helperTextTextAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintVertical_bias="0.407"
+            app:layout_constraintVertical_bias="0.517"
             android:id="@+id/textInputLayout3">
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -122,5 +122,17 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/createShopCategory"
             app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintVertical_bias="0.121" />
+            app:layout_constraintVertical_bias="0.3" />
+
+    <Button
+            android:text="Home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/homeButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.981"
+            app:layout_constraintVertical_bias="0.083" />
 </androidx.constraintlayout.widget.ConstraintLayout>

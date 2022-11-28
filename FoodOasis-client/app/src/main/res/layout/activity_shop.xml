@@ -17,21 +17,21 @@
             android:textSize="22sp"
             android:textColor="@android:color/black"
             android:textStyle="bold"
-            android:layout_marginEnd="40dp"
+            android:layout_marginEnd="10dp"
             app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintHorizontal_bias="0.807" />
 
     <ImageView
-            android:layout_width="172dp"
-            android:layout_height="92dp"
+            android:layout_width="145dp"
+            android:layout_height="81dp"
             android:src="@drawable/img"
             android:id="@+id/imageView"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.071"
+            app:layout_constraintVertical_bias="0.065"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.113"
+            app:layout_constraintHorizontal_bias="0.0"
             android:contentDescription="Just image" />
 
     <View
@@ -155,5 +155,17 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginEnd="30dp"
             android:layout_marginStart="30dp" />
+
+    <Button
+            android:text="Home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/goHomeDirections"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.95"
+            app:layout_constraintVertical_bias="0.007" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

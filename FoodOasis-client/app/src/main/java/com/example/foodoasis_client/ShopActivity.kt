@@ -16,7 +16,7 @@ class ShopActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shop)
-
+        goHomeDirections.setOnClickListener { startActivity(Intent(this, MainActivity::class.java)) }
         val bundle: Bundle? = intent.extras
 
         if (bundle?.containsKey(ARG_ITEM_ID)!!) {

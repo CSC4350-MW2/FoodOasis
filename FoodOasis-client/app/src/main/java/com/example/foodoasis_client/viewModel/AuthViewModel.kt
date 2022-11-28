@@ -9,7 +9,6 @@ import com.example.foodoasis_client.model.auth.Data
 import com.example.foodoasis_client.model.auth.LoginCredentials
 import com.example.foodoasis_client.service.AuthService
 import com.example.foodoasis_client.service.AuthServiceBuilder
-import com.example.foodoasis_client.utils.Constants.Companion.AUTH_BASE_URL
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
