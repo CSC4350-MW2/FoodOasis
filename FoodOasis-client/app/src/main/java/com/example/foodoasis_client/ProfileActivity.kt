@@ -1,5 +1,6 @@
 package com.example.foodoasis_client
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
@@ -17,6 +18,8 @@ class ProfileActivity : AppCompatActivity() {
         setContentView(R.layout.activity_profile)
 
         val bundle: Bundle? = intent.extras
+
+        createShopButton.setOnClickListener { startActivity(Intent(this, CreateShopActivity::class.java))  }
 
         if (bundle?.containsKey(ARG_USERNAME)!! &&
             bundle.containsKey(ARG_USER_ID) &&
