@@ -1,5 +1,6 @@
 package com.example.foodoasis_client
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -34,7 +35,12 @@ class LoginActivity : AppCompatActivity() {
         authViewModel = ViewModelProvider(this)[AuthViewModel::class.java]
         authViewModel.loginUser(this, newLoginCredentials)
         authViewModel.verifiedUser.observe(this) {
-
+            val context = this
+            val intent = Intent(context, CreateShopActivity::class.java)
+            intent.putExtra(CreateShopActivity.ARG_USERNAME, it?.user?.username)
+            intent.putExtra(CreateShopActivity.ARG_USER_ID, it?.user?.id)
+            intent.putExtra(CreateShopActivity.ARG_ACCESS_TOKEN, it?.tokens?.accessToken)
+            context.startActivity(intent)
         }
     }
 }

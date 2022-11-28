@@ -3,7 +3,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="180dp">
 
     <TextView
             android:text="Title"
@@ -24,8 +24,8 @@
 
     <TextView
             android:text="Category"
-            android:layout_width="0dp"
-            android:layout_height="25dp"
+            android:layout_width="255dp"
+            android:layout_height="26dp"
             android:id="@+id/rvShopCategory"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/rvShopTitle"
@@ -38,23 +38,41 @@
 
     <TextView
             android:text="Address"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="262dp"
+            android:layout_height="23dp"
             android:id="@+id/rvShopAddress"
             app:layout_constraintTop_toBottomOf="@+id/rvShopCategory"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/rvShopCategory"
             android:textStyle="italic"
             android:textColor="@android:color/black"
-            app:layout_constraintEnd_toStartOf="@+id/editShopButton" />
+            app:layout_constraintEnd_toStartOf="@+id/editShopButton"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="0.384" />
 
     <Button
-            android:text="View"
+            android:text="Edit"
             android:layout_width="72dp"
             android:layout_height="48dp"
             android:id="@+id/editShopButton"
-            android:layout_marginTop="1dp"
-            app:layout_constraintTop_toBottomOf="@+id/rvShopCategory"
-            app:layout_constraintEnd_toEndOf="@+id/rvShopCategory" />
+            app:layout_constraintEnd_toEndOf="@+id/deleteShopButton"
+            app:layout_constraintTop_toBottomOf="@+id/deleteShopButton"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/rvShopAddress"
+            app:layout_constraintVertical_bias="0.617"
+            style="@style/Widget.AppCompat.Button.Small" />
+
+    <Button
+            android:text="Delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/deleteShopButton"
+            app:layout_constraintEnd_toEndOf="@+id/rvShopTitle"
+            app:layout_constraintStart_toEndOf="@+id/rvShopCategory"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintBottom_toBottomOf="@+id/rvShopCategory"
+            style="@style/Widget.AppCompat.Button.Small"
+            android:backgroundTint="#D81515" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
