@@ -1,6 +1,8 @@
 package com.example.foodoasis_client
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
@@ -38,7 +40,25 @@ class ShopActivity : AppCompatActivity() {
                     "${it.address.zipCode}" +
                     "\n${it.address.country} ")
             shopContact.setText(it.contact.phone)
+            val long = it.gps.longitude
+            val lat = it.gps.latitude
+            getShopDirections.setOnClickListener {
+                getDirections(lat, long)
+            }
         }
+    }
+
+    private fun getDirections(lat: Double, long: Double){
+        // Create a Uri from an intent string. Use the result to create an Intent.
+        val gmmIntentUri = Uri.parse("google.navigation:q=${lat},${long}")
+
+        // Create an Intent from gmmIntentUri. Set the action to ACTION_VIEW
+        val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+        // Make the Intent explicit by setting the Google Maps package
+        mapIntent.setPackage("com.google.android.apps.maps")
+
+        // Attempt to start an activity that can handle the Intent
+        startActivity(mapIntent)
     }
 
     companion object {
