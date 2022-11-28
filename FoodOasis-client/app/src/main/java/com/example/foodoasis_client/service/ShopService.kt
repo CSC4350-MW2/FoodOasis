@@ -6,10 +6,11 @@ import com.example.foodoasis_client.model.shops.ShopsList
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface ShopService {
     @GET("shops")
-    fun getShops(): Call<ShopsList>
+    fun getShops(@Query("lat") lat: Double, @Query("long") long: Double): Call<ShopsList>
 
     @GET("shops/{id}")
     fun getShop(@Path("id") id: String): Call<ShopResponse>

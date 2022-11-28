@@ -18,9 +18,9 @@ import java.io.IOException
 class ShopsViewModel : ViewModel() {
     var shopDataList = MutableLiveData<List<Shop>>()
 
-    fun getShopsData(context: Context){
+    fun getShopsData(context: Context, lat: Double, long: Double){
         val shopService = ShopServiceBuilder.buildService(ShopService::class.java)
-        val requestCall = shopService.getShops()
+        val requestCall = shopService.getShops(lat, long)
 
         requestCall.enqueue(object: Callback<ShopsList> {
             override fun onResponse(call: Call<ShopsList>, response: Response<ShopsList>) {

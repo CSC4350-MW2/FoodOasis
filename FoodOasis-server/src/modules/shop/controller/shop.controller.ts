@@ -1,6 +1,6 @@
 import { Service } from 'typedi'
 import { ResponseSchema } from 'routing-controllers-openapi';
-import { Controller, Body, Post, Get, CurrentUser, Authorized, Put, Param } from 'routing-controllers';
+import { Controller, Body, Post, Get, CurrentUser, Authorized, Put, Param, QueryParams } from 'routing-controllers';
 
 import { SuccessResponse } from '@responses//';
 import { ShopService } from '../services/shop.service';
@@ -24,7 +24,8 @@ export class UserController {
 
     @Get()
     @ResponseSchema(ShopsResponse)
-    async listShops(): Promise<ShopsResponse> {
+    async listShops(@QueryParams() query: {lat: string, long: string}): Promise<ShopsResponse> {
+        console.log(query)
         const shops = await this.shopService.listShops();
         return new SuccessResponse<ShopsData>('Shops found', { shops });
     }
