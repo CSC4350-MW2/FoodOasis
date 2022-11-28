@@ -24,9 +24,10 @@ export class UserController {
 
     @Get()
     @ResponseSchema(ShopsResponse)
-    async listShops(@QueryParams() query: {lat: string, long: string}): Promise<ShopsResponse> {
+    async listShops(@QueryParams() query: {lat: number, long: number}): Promise<ShopsResponse> {
         console.log(query)
         const shops = await this.shopService.listShops();
+        const arrangedShops = await this.shopService.arrangedShops(shops, query)
         return new SuccessResponse<ShopsData>('Shops found', { shops });
     }
 

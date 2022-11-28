@@ -47,4 +47,31 @@ export class ShopService{
         const shop = await this.shopRepository.updateEntity(query, body);
         return shop
     }
+
+    async arrangedShops(shops: FullShop[], gps: {lat: number, long: number}){
+        shops.map(shop => {
+            shop.gps?.latitude
+        })
+    }
+
+    haversineDistance(dist1: {lat: number, long: number}, dist2: {lat: number, long: number}): number{
+        var lat1 = this.degrees_to_radians(dist1.lat)
+        var long1 = this.degrees_to_radians(dist1.long)
+        var lat2 = this.degrees_to_radians(dist2.lat)
+        var long2 = this.degrees_to_radians(dist2.long)
+
+        var dlon = long2 - long1
+        var dlat = lat2 - lat1
+        var a = Math.sin(dlat/2)**2 + Math.cos(lat1) * Math.cos(lat2) * Math.sin(dlon/2)**2
+        var c = 2 * Math.asin(Math.sqrt(a));
+
+        // Radius of the earth in kilometers is 6371
+        var km = 6371 * c
+        return km;
+    }
+
+    degrees_to_radians(degrees: number){
+        var pi = Math.PI;
+        return degrees * (pi/180);
+    }
 }
